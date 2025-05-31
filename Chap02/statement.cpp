@@ -1,15 +1,12 @@
 // statement.cpp by Bill Weinman [bw.org]
 // updated 2022-05-19
-#include <format>
 #include <iostream>
-
-using std::cout;
-using std::format;
+#include <string>
 
 int main() {
     int x;
-    x = 42;
+    x = 42 * 2;
 
-    auto str = format("x is {}\n", x);
-    cout << str;
+    std::cout << "The value of x is: " << x << std::endl;
+
 }
