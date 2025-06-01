@@ -7,8 +7,12 @@
 using std::format;
 using std::cout;
 
-typedef uint32_t points_t;
-typedef uint64_t rank_t;
+//typedef uint32_t points_t;
+//typedef uint64_t rank_t;
+
+//Can also create aliases with the using keyword instead of typedef
+using points_t = uint32_t;
+using rank_t = uint64_t;
 
 struct score {
     points_t p {};
