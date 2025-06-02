@@ -1,10 +1,8 @@
 // constructors.cpp by Bill Weinman [bw.org]
 // updated 2022-06-18
-#include <format>
 #include <iostream>
 #include <string>
 
-using std::format;
 using std::cout;
 using std::string;
 
@@ -13,6 +11,7 @@ const string clone_prefix {"clone-"};
 
 // -- interface --
 class Animal {
+    // Private data memebers
     string a_type {};
     string a_name {};
     string a_sound {};
@@ -43,7 +42,7 @@ Animal::Animal(const Animal& a) {
 }
 
 Animal::~Animal() {
-    cout << format("destructor: {} the {}\n", a_name, a_type);
+    cout << "destructor: " << a_name << "the " << a_type << std::endl;
 }
 
 Animal& Animal::operator = (const Animal& o) {
@@ -57,7 +56,7 @@ Animal& Animal::operator = (const Animal& o) {
 }
 
 void Animal::print () const {
-    cout << format("{} the {} says {}\n", a_name, a_type, a_sound);
+    cout << a_name << " the " << a_type << " says " << a_sound << std::endl; 
 }
 
 int main() {

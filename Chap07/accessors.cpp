@@ -7,6 +7,7 @@ using std::format;
 using std::cout;
 
 class A {
+    // These are default private data members 
     int ia {};
     int ib {};
     int ic {};
