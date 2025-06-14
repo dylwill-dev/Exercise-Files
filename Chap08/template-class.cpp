@@ -1,12 +1,9 @@
 // template-class.cpp by Bill Weinman [bw.org]
 // updated 2022-06-21
-#include <format>
 #include <iostream>
 #include <memory>
 #include <string>
 #include <exception>
-
-using std::format;
 using std::cout;
 
 namespace bw {
@@ -27,7 +24,7 @@ class Stack {
     static const int max_size {1000};
     int S_size {};
     int S_top {};
-    std::unique_ptr<T[]> S_ptr {};
+    std::unique_ptr<T[]> S_ptr {}; // This is a type of smart pointer
 public:
     explicit Stack(int s = default_size);
     ~Stack() { if(S_ptr) S_ptr.release(); }
@@ -67,35 +64,37 @@ int main() {
     bw::Stack<std::string> ss {5};
 
     try {
-        cout << format("si size: {}\n", si.size());
-        cout << format("si top: {}\n", si.top());
+        cout << "si size: " << si.size() << std::endl;
+        cout << "si top:" << si.top() << std::endl;
         
         for ( int i : { 1, 2, 3, 4, 5 } ) {
             si.push(i);
         }
         
-        cout << format("si top after pushes: {}\n", si.top());
-        cout << format("si is {}full\n", si.is_full() ? "" : "not ");
+        cout << "si top after pushes: " << si.top();
+        std::string check = si.is_full() ? " " : "not";
+        cout << "si is" << check << " full " << std::endl;
         
         while(!si.is_empty()) {
-            cout << format("popped {}\n", si.pop());
+            cout << "popped " << si.pop() << std::endl;
         }
 
-        cout << format("ss size: {}\n", ss.size());
-        cout << format("ss top: {}\n", ss.top());
+        cout << "ss size: " << ss.size() << std::endl;
+        cout << "ss top: " << ss.top() << std::endl;
 
         for ( const char * s : {"one", "two", "three", "four", "five"} ) {
             ss.push(s);
         }
 
-        cout << format("ss top after pushes: {}\n", ss.top());
-        cout << format("ss is {}full\n", ss.is_full() ? "" : "not ");
+        cout << "ss top after pushes: " << ss.top() << std::endl;
+        check = ss.is_full() ? " " : "not";
+        cout << "ss is" << check << " full" << std::endl;
 
         while(!ss.is_empty()) {
-            cout << format("popped {}\n", ss.pop());
+            cout << "popped " << ss.pop() << std::endl;
         }
     } catch (bw::S_err & e) {
-        std::cout << format("Stack error: {}\n", e.what());
+        std::cout << "Stack error: " << e.what() << std::endl;
         return 1;
     }
 }

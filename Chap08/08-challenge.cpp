@@ -1,20 +1,30 @@
 // 08-challenge.cpp by Bill Weinman [bw.org]
 // updated 2022-06-01
-#include <format>
 #include <iostream>
-
-using std::format;
 using std::cout;
 
-unsigned long factorial(unsigned long n) {
-    auto result = n;
-    while (n > 1) {
-        result *= --n;
+template <typename T>
+T nonRecursiveFact(T num){
+    int result {1};
+    
+    while(num >= 2){
+        result *= num;
+        --num;
     }
+    
     return result;
 }
 
 int main() {
-    unsigned long n {5};
-    cout << format("Factorial of {} is {}\n", n, factorial(n));
+
+    auto test1 {5};
+    auto t1r = nonRecursiveFact(test1);
+    
+    cout << test1 << "! is: " << t1r << std::endl;
+
+    auto test2 {5.5};
+    auto t2r = nonRecursiveFact(test2);
+    
+    cout << test2 << "! is: " << t2r << std::endl;
+    
 }
