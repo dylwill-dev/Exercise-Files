@@ -11,7 +11,7 @@ using std::string;
 int main() {
     string s1 {"This is a string"};
     
-    // size & length
+    // size & length (both do the same thing)
     cout << format("length is same as size: {}\n", s1.length());
     cout << format("size is same as length: {}\n", s1.size());
     

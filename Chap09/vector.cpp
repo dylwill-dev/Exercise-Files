@@ -3,7 +3,7 @@
 #include <format>
 #include <iostream>
 #include <string>
-#include <vector>
+#include <vector> // Vectors are defined in this vector header class
 
 using std::format;
 using std::cout;
